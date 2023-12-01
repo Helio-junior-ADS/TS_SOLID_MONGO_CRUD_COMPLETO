@@ -1,6 +1,6 @@
 # 
 
-<h1 align="center">:file_cabinet: Foi Implementado uma Api de Crud usando Princípios SOLID em Node.js e TypeScript.</h1>
+<h1 align="center">:file_cabinet: Foi Implementado uma Api de Crud usando Princípios SOLID, Node.js, TypeScript e MongoDB.</h1>
 
 ## :memo: Descrição
 Esse projeto foi desenvolvido como parte do estudo dos Princípios de SOLID, POO e MongoDB. 
