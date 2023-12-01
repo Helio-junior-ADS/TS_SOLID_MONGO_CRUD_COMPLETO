@@ -19,6 +19,17 @@ Esse projeto foi desenvolvido como parte do estudo dos Princípios de SOLID, POO
 
   ![68747470733a2f2f696d6775722e636f6d2f6b356d58466f5a2e706e67](https://github.com/Helio-junior-ADS/TS_SOLID_MONGO_CRUD_COMPLETO/assets/64769193/8f718e0d-e66c-4454-93df-4f2f85f91128)
 
+## :books: Entidades
+```
+User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+```
+
 
 ## :wrench: Tecnologias utilizadas
 * Typescript;
