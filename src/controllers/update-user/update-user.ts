@@ -1,5 +1,5 @@
 import { User } from "../../models/user";
-import { CreateUserParams } from "../create-user/protocols";
+import { CreateUserParams } from "../create-users/protocols";
 import { HttpRequest, HttpResponse } from "../protocols";
 import { IUpdateUserController, IUpdateUserRepository, UpdateUserParams } from "./protocols";
 
@@ -8,13 +8,13 @@ export class UpdateUserController implements IUpdateUserController {
     private readonly updateUserRepository: IUpdateUserRepository
   ) { }
   async handle(httpRequest: HttpRequest<any>): Promise<HttpResponse<User>> {
-    
-    
+
+
     try {
       const id = httpRequest?.params?.id;
       const body = httpRequest?.body;
 
-      if (!id){
+      if (!id) {
         return {
           statusCode: 400,
           body: "Missing user id",
@@ -23,8 +23,8 @@ export class UpdateUserController implements IUpdateUserController {
       // Validacao
       // Campos para validar no body
       const allowedFieldsToUpdate: (keyof UpdateUserParams)[] = [
-        'firstName', 
-        'lastName', 
+        'firstName',
+        'lastName',
         'password'
       ];
       // validacao dos campos 
@@ -32,21 +32,21 @@ export class UpdateUserController implements IUpdateUserController {
         (key) => !allowedFieldsToUpdate.includes(key as keyof UpdateUserParams)
       );
 
-      if(someFieldIsNotAllowedToUpdate){
+      if (someFieldIsNotAllowedToUpdate) {
         return {
           statusCode: 400,
           body: "Some received field is not allowed"
         }
       }
 
-      const user  = await this.updateUserRepository.updateUser(id, body);
+      const user = await this.updateUserRepository.updateUser(id, body);
 
       return {
         statusCode: 200,
-        body:user
+        body: user
       }
 
-    } catch (err){
+    } catch (err) {
       return {
         statusCode: 500,
         body: "Something went wrong.",
